@@ -21,7 +21,7 @@ A modern, beautiful Electron application for playing IPTV streams from the iptv-
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/YOUR_USERNAME/iptv-player.git
+git clone https://github.com/PlayNexusHub/iptv-player.git
 cd iptv-player
 ```
 
