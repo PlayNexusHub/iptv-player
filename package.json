@@ -1,0 +1,41 @@
+{
+  "name": "iptv-player",
+  "version": "1.0.0",
+  "description": "Windows 10 Electron app for playing IPTV streams",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win"
+  },
+  "keywords": [
+    "iptv",
+    "electron",
+    "streaming",
+    "player"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^39.1.2",
+    "electron-builder": "^24.9.1"
+  },
+  "dependencies": {
+    "m3u8-parser": "^4.7.1",
+    "video.js": "^8.6.1",
+    "videojs-contrib-quality-levels": "^3.0.0",
+    "videojs-hls-quality-selector": "^1.1.4"
+  },
+  "build": {
+    "appId": "com.iptvplayer.app",
+    "productName": "IPTV Player",
+    "win": {
+      "target": "nsis"
+    },
+    "files": [
+      "**/*",
+      "!iptv/**",
+      "iptv/streams/**"
+    ]
+  }
+}

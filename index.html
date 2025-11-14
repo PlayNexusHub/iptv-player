@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https: http:; media-src 'self' https: http: blob: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: blob:; worker-src 'self' blob: data:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https: http:; font-src 'self' data: https:;">
+  <title>IPTV Player</title>
+  <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h1>📺 IPTV Player</h1>
+      </div>
+      
+      <div class="sidebar-content">
+        <div class="playlist-section">
+          <div class="section-header">
+            <h2>Playlists</h2>
+            <button class="btn-icon" id="refreshBtn" title="Refresh">🔄</button>
+          </div>
+          <button class="btn-primary" id="loadCustomBtn">📁 Load Custom Playlist</button>
+          <div class="playlist-list" id="playlistList">
+            <div class="loading">Loading playlists...</div>
+          </div>
+        </div>
+
+        <div class="channels-section">
+          <div class="section-header">
+            <h2>Channels</h2>
+            <input type="text" id="searchInput" placeholder="🔍 Search channels..." class="search-input">
+          </div>
+          <div class="channels-list" id="channelsList">
+            <div class="empty-state">Select a playlist to view channels</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="player-container" id="playerContainer">
+        <div class="player-placeholder">
+          <div class="placeholder-content">
+            <div class="placeholder-icon">📺</div>
+            <h2>Select a channel to start watching</h2>
+            <p>Browse playlists and channels from the sidebar</p>
+          </div>
+        </div>
+        <video
+          id="videoPlayer"
+          class="video-js vjs-default-skin vjs-big-play-centered"
+          controls
+          preload="auto"
+          data-setup="{}"
+        >
+          <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a web browser that
+            <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>.
+          </p>
+        </video>
+      </div>
+
+      <div class="channel-info" id="channelInfo" style="display: none;">
+        <h3 id="channelName"></h3>
+        <p id="channelUrl"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@videojs/http-streaming@3.0.2/dist/videojs-http-streaming.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
