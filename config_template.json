@@ -1,0 +1,23 @@
+{
+  "appName": "IPTV Player",
+  "defaultPlaylistCode": "US",
+  "secureMode": true,
+  "autoUpdate": true,
+  "telemetry": {
+    "enabled": false,
+    "endpoint": ""
+  },
+  "playerPreferences": {
+    "startMuted": false,
+    "defaultQuality": "auto",
+    "allowPiP": true,
+    "enableKeyboardShortcuts": true
+  },
+  "network": {
+    "retryCount": 3,
+    "retryDelayMs": 2000,
+    "timeoutMs": 12000,
+    "proxy": ""
+  }
+}
+

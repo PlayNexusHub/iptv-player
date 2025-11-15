@@ -1,0 +1,45 @@
+PlayNexus IPTV Player – Setup Instructions
+==========================================
+
+Prerequisites
+-------------
+1. Windows 10+ (x64) with PowerShell 5+ or Windows Terminal.
+2. Node.js 18+ and npm 10+ installed globally.
+3. Git with access to PlayNexusHub/iptv-player (public).
+
+Environment Preparation
+-----------------------
+1. Clone the repository:
+   git clone https://github.com/PlayNexusHub/iptv-player.git
+   cd iptv-player
+2. Install dependencies:
+   npm install
+3. Copy `env.example` to `.env` and adjust values as needed (no secrets committed).
+4. Update `config_template.json` into a tenant-specific `config.json` for deployment.
+
+Development Workflow
+--------------------
+1. Start the Electron app in dev mode:
+   npm start
+2. Run lint/tests as needed (e.g., npm run test if added).
+3. Keep CHANGELOG.txt and version.json up to date with every feature branch.
+
+Secure Release Workflow
+-----------------------
+1. Bump the semantic version inside package.json + version.json.
+2. Update CHANGELOG.txt and README/README_PlayNexus.txt with the new highlights.
+3. Generate the release folder with obfuscated renderer:
+   npm run release:prepare
+   (outputs ./release/PlayNexus_IPTV_vX.Y.Z with docs + app.obf.js)
+4. Build signed Windows artifacts:
+   npm run build:secure
+   (runs javascript-obfuscator then electron-builder --win)
+5. Upload installer + release folder to GitHub under PlayNexusHub with a semantic tag (e.g., v1.1.0).
+6. Never publish without README + README_PlayNexus + CHANGELOG + version.json present in the release folder.
+
+Post-Release
+------------
+- Verify the release installer on a clean Windows VM.
+- Archive the release folder plus installer in secure storage.
+- Rotate any temporary credentials used during QA (no real secrets stored in repo).
+

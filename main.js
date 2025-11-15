@@ -66,12 +66,16 @@ ipcMain.handle('get-playlists', async () => {
     const files = fs.readdirSync(streamsDir);
     return files
       .filter(file => file.endsWith('.m3u'))
-      .map(file => ({
-        name: file.replace('.m3u', '').replace(/_/g, ' ').toUpperCase(),
-        path: path.join(streamsDir, file),
-        filename: file
-      }))
-      .sort((a, b) => a.name.localeCompare(b.name));
+      .map(file => {
+        const code = file.replace('.m3u', '').toUpperCase();
+        return {
+          code,
+          name: code,
+          path: path.join(streamsDir, file),
+          filename: file
+        };
+      })
+      .sort((a, b) => a.code.localeCompare(b.code));
   } catch (error) {
     console.error('Error reading playlists:', error);
     return [];

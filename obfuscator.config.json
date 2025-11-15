@@ -1,0 +1,17 @@
+{
+  "compact": true,
+  "controlFlowFlattening": true,
+  "controlFlowFlatteningThreshold": 0.2,
+  "numbersToExpressions": true,
+  "simplify": true,
+  "stringArray": true,
+  "stringArrayEncoding": ["base64"],
+  "stringArrayRotate": true,
+  "stringArrayShuffle": true,
+  "splitStrings": true,
+  "splitStringsChunkLength": 5,
+  "transformObjectKeys": true,
+  "unicodeEscapeSequence": false,
+  "target": "browser"
+}
+

@@ -23,6 +23,17 @@
             <button class="btn-icon" id="refreshBtn" title="Refresh">🔄</button>
           </div>
           <button class="btn-primary" id="loadCustomBtn">📁 Load Custom Playlist</button>
+          <input type="text" id="playlistSearchInput" placeholder="🔍 Search countries, regions, codes..." class="search-input">
+          <div class="playlist-stats">
+            <div class="stat-card">
+              <span class="stat-label">Playlists</span>
+              <span class="stat-value" id="playlistStatsValue">0</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Channels Loaded</span>
+              <span class="stat-value" id="channelStatsValue">0</span>
+            </div>
+          </div>
           <div class="playlist-list" id="playlistList">
             <div class="loading">Loading playlists...</div>
           </div>
@@ -32,6 +43,25 @@
           <div class="section-header">
             <h2>Channels</h2>
             <input type="text" id="searchInput" placeholder="🔍 Search channels..." class="search-input">
+          </div>
+          <div class="channel-controls">
+            <div class="channel-filters" id="channelFilters">
+              <button class="filter-chip active" data-filter-type="quality" data-channel-filter="all">All</button>
+              <button class="filter-chip" data-filter-type="quality" data-channel-filter="hd">HD+</button>
+              <button class="filter-chip" data-filter-type="quality" data-channel-filter="fullhd">Full HD</button>
+              <button class="filter-chip" data-filter-type="quality" data-channel-filter="uhd">4K</button>
+              <button class="filter-chip" data-filter-type="geo" data-channel-filter="geo-free">Geo-free</button>
+            </div>
+            <div class="channel-actions">
+              <button class="btn-secondary" id="favoritesToggle" aria-pressed="false">☆ Favorites</button>
+              <select id="channelSortSelect" class="select-control">
+                <option value="name-asc">Name A → Z</option>
+                <option value="name-desc">Name Z → A</option>
+                <option value="quality-desc">Quality High → Low</option>
+                <option value="quality-asc">Quality Low → High</option>
+                <option value="group-asc">Group A → Z</option>
+              </select>
+            </div>
           </div>
           <div class="channels-list" id="channelsList">
             <div class="empty-state">Select a playlist to view channels</div>
@@ -65,8 +95,32 @@
       </div>
 
       <div class="channel-info" id="channelInfo" style="display: none;">
-        <h3 id="channelName"></h3>
-        <p id="channelUrl"></p>
+        <div class="channel-info-header">
+          <div>
+            <p class="channel-info-label">Now Playing</p>
+            <h3 id="channelName"></h3>
+          </div>
+          <span class="channel-info-pill" id="channelPlaylist">—</span>
+        </div>
+        <div class="channel-info-grid">
+          <div>
+            <p class="channel-info-label">Group</p>
+            <p class="channel-info-value" id="channelGroup">—</p>
+          </div>
+          <div>
+            <p class="channel-info-label">Quality</p>
+            <p class="channel-info-value" id="channelQuality">—</p>
+          </div>
+          <div>
+            <p class="channel-info-label">Status</p>
+            <div class="channel-info-tags" id="channelStatusTags"></div>
+          </div>
+        </div>
+        <div class="channel-info-actions">
+          <button class="btn-secondary" id="copyChannelUrlBtn">Copy URL</button>
+          <button class="btn-secondary" id="retryChannelBtn">Retry Stream</button>
+        </div>
+        <pre class="channel-url" id="channelUrl"></pre>
       </div>
     </div>
   </div>

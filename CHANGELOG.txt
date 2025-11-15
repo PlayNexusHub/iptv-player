@@ -1,0 +1,16 @@
+# Changelog
+
+## [1.1.0] - 2025-11-15
+### Added
+- Country-aware playlist intelligence with search, stats, quality/geo filters, favorites, and retry/copy tooling.
+- Obfuscation-ready release workflow (`npm run release:prepare`, `npm run build:secure`) using javascript-obfuscator + release folder automation.
+- Compliance docs: README_PlayNexus.txt, SETUP_INSTRUCTIONS.txt, config_template.json, env.example.
+- Version metadata (`version.json`) plus CHANGELOG tracking.
+
+### Changed
+- Updated README.md feature list to highlight new functionality.
+- Bumped Electron packaging scripts to include secure build path.
+
+### Fixed
+- Ensured playlist names for VN/WS/XK (and all ISO codes) resolve to human-readable country names automatically.
+

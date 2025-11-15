@@ -1,12 +1,15 @@
 {
   "name": "iptv-player",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Windows 10 Electron app for playing IPTV streams",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder",
-    "build:win": "electron-builder --win"
+    "build:win": "electron-builder --win",
+    "obfuscate": "javascript-obfuscator app.js --config obfuscator.config.json --output dist/secure/app.js",
+    "release:prepare": "node scripts/prepareRelease.js",
+    "build:secure": "npm run obfuscate && npm run build:win"
   },
   "keywords": [
     "iptv",
@@ -18,7 +21,8 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^39.1.2",
-    "electron-builder": "^24.9.1"
+    "electron-builder": "^24.9.1",
+    "javascript-obfuscator": "^4.1.1"
   },
   "dependencies": {
     "m3u8-parser": "^4.7.1",

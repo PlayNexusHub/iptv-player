@@ -1,0 +1,12 @@
+{
+  "name": "IPTV Player",
+  "version": "1.1.0",
+  "codename": "Atlas",
+  "releaseDate": "2025-11-15",
+  "notes": [
+    "Smart playlist browser with filters, stats, and favorites",
+    "Secure release automation (javascript-obfuscator + release folder)",
+    "Compliance docs: README_PlayNexus, SETUP_INSTRUCTIONS, config templates"
+  ]
+}
+
